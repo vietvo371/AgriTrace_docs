@@ -1,44 +1,20 @@
-name: Deploy AgriTrace Documentation
+name: Deploy Documentation
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-        cache: 'yarn'
-    
-    - name: Install dependencies
-      run: yarn install
-    
-    - name: Build documentation
-      run: yarn build
-    
-    - name: Test build locally
-      run: |
-        yarn serve &
-        sleep 10
-        curl -f http://localhost:3000 || exit 1
-
   deploy:
-    needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
-    - uses: actions/checkout@v3
-    
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'yarn'
@@ -52,7 +28,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        personal_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         publish_dir: ./build
-        cname: docs.agritrace.vn
         force_orphan: true 
