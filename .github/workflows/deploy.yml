@@ -54,4 +54,5 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./build
-        cname: docs.agritrace.vn 
+        cname: docs.agritrace.vn
+        force_orphan: true 
