@@ -24,7 +24,7 @@ const config: Config = {
       {
         id: 'api',
         path: 'api',
-        routeBasePath: 'api',
+        routeBasePath: 'api-reference',
         sidebarPath: './sidebars.api.ts',
         sidebarCollapsible: true,
         sidebarCollapsed: false,
