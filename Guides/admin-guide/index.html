@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Guides/admin-guide" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Admin Guide | AgriTrace Docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://vietvo371.github.io/AgriTrace_docs/img/AgriTrace.png"><meta data-rh="true" name="twitter:image" content="https://vietvo371.github.io/AgriTrace_docs/img/AgriTrace.png"><meta data-rh="true" property="og:url" content="https://vietvo371.github.io/AgriTrace_docs/Guides/admin-guide/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" property="og:locale:alternate" content="vi"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="keywords" content="agriculture, traceability, QR codes, React Native, Vietnam, farmers"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Admin Guide | AgriTrace Docs"><meta data-rh="true" name="description" content="👨‍💼 Welcome to AgriTrace Admin"><meta data-rh="true" property="og:description" content="👨‍💼 Welcome to AgriTrace Admin"><link data-rh="true" rel="icon" href="/AgriTrace_docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://vietvo371.github.io/AgriTrace_docs/Guides/admin-guide/"><link data-rh="true" rel="alternate" href="https://vietvo371.github.io/AgriTrace_docs/Guides/admin-guide/" hreflang="en"><link data-rh="true" rel="alternate" href="https://vietvo371.github.io/AgriTrace_docs/vi/Guides/admin-guide/" hreflang="vi"><link data-rh="true" rel="alternate" href="https://vietvo371.github.io/AgriTrace_docs/Guides/admin-guide/" hreflang="x-default"><link rel="stylesheet" href="/AgriTrace_docs/assets/css/styles.fea5eb74.css">
+<script src="/AgriTrace_docs/assets/js/runtime~main.4188ccec.js" defer="defer"></script>
+<script src="/AgriTrace_docs/assets/js/main.24fd59f4.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/AgriTrace_docs/"><div class="navbar__logo"><img src="/AgriTrace_docs/img/AgriTrace.png" alt="AgriTrace Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/AgriTrace_docs/img/AgriTrace.png" alt="AgriTrace Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">AgriTrace</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/AgriTrace_docs/intro/">Documentation</a><a class="navbar__item navbar__link" href="/AgriTrace_docs/api-reference/">API Reference</a></div><div class="navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>English</a><ul class="dropdown__menu"><li><a href="/AgriTrace_docs/Guides/admin-guide/" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="en">English</a></li><li><a href="/AgriTrace_docs/vi/Guides/admin-guide/" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="vi">Tiếng Việt</a></li></ul></div><a href="https://github.com/vietvo371/AgriTraceApp" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/intro/">🚀 Introduction</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/GettingStarted/">📝 Getting Started</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" aria-expanded="false" href="/AgriTrace_docs/Features/">📚 Features</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/Architecture/">🏗️ System Architecture</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/Installation/">🔧 Installation Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/Database/">🗄️ Database Schema</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" aria-expanded="true" href="/AgriTrace_docs/Guides/farmer-guide/">📖 User Guides</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/AgriTrace_docs/Guides/farmer-guide/">👨‍🌾 Farmer Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/AgriTrace_docs/Guides/consumer-guide/">🛒 Consumer Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/AgriTrace_docs/Guides/admin-guide/">👨‍💼 Admin Guide</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/Deployment/">🚀 Deployment Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/Contributing/">🤝 Contributing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/AgriTrace_docs/License/">📜 License</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/AgriTrace_docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">📖 User Guides</span><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">👨‍💼 Admin Guide</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><h1>Admin Guide - AgriTrace Platform Management</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-welcome-to-agritrace-admin">👨‍💼 Welcome to AgriTrace Admin<a href="#-welcome-to-agritrace-admin" class="hash-link" aria-label="Direct link to 👨‍💼 Welcome to AgriTrace Admin" title="Direct link to 👨‍💼 Welcome to AgriTrace Admin">​</a></h2>
+<p>As an administrator, you have access to comprehensive tools to manage the AgriTrace platform, monitor system performance, and support farmers and consumers. This guide will help you navigate all administrative functions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-admin-access">🔐 Admin Access<a href="#-admin-access" class="hash-link" aria-label="Direct link to 🔐 Admin Access" title="Direct link to 🔐 Admin Access">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="login-process">Login Process<a href="#login-process" class="hash-link" aria-label="Direct link to Login Process" title="Direct link to Login Process">​</a></h3>
+<ol>
+<li><strong>Access Admin Panel</strong>: Go to <a href="https://admin.agritrace.vn" target="_blank" rel="noopener noreferrer">https://admin.agritrace.vn</a></li>
+<li><strong>Enter Credentials</strong>: Use your admin email and password</li>
+<li><strong>Two-Factor Authentication</strong>: Complete 2FA if enabled</li>
+<li><strong>Dashboard Access</strong>: View system overview and statistics</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="admin-roles">Admin Roles<a href="#admin-roles" class="hash-link" aria-label="Direct link to Admin Roles" title="Direct link to Admin Roles">​</a></h3>
+<ul>
+<li><strong>Super Admin</strong>: Full system access and control</li>
+<li><strong>System Admin</strong>: Platform management and monitoring</li>
+<li><strong>Content Admin</strong>: Content moderation and management</li>
+<li><strong>Support Admin</strong>: User support and issue resolution</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-dashboard-overview">📊 Dashboard Overview<a href="#-dashboard-overview" class="hash-link" aria-label="Direct link to 📊 Dashboard Overview" title="Direct link to 📊 Dashboard Overview">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-statistics">System Statistics<a href="#system-statistics" class="hash-link" aria-label="Direct link to System Statistics" title="Direct link to System Statistics">​</a></h3>
+<ul>
+<li><strong>Total Users</strong>: Number of registered farmers and consumers</li>
+<li><strong>Active Batches</strong>: Currently active product batches</li>
+<li><strong>QR Scans</strong>: Total QR code scans today/month</li>
+<li><strong>Revenue</strong>: Platform revenue and farmer earnings</li>
+<li><strong>System Health</strong>: Server status and performance metrics</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="real-time-monitoring">Real-Time Monitoring<a href="#real-time-monitoring" class="hash-link" aria-label="Direct link to Real-Time Monitoring" title="Direct link to Real-Time Monitoring">​</a></h3>
+<ul>
+<li><strong>Live Activity</strong>: Real-time user activity feed</li>
+<li><strong>System Alerts</strong>: Important notifications and warnings</li>
+<li><strong>Performance Metrics</strong>: Server response times and uptime</li>
+<li><strong>Error Tracking</strong>: System errors and issues</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-actions">Quick Actions<a href="#quick-actions" class="hash-link" aria-label="Direct link to Quick Actions" title="Direct link to Quick Actions">​</a></h3>
+<ul>
+<li><strong>User Management</strong>: Access user administration tools</li>
+<li><strong>Content Moderation</strong>: Review and approve content</li>
+<li><strong>System Settings</strong>: Configure platform settings</li>
+<li><strong>Support Tickets</strong>: Handle user support requests</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-user-management">👥 User Management<a href="#-user-management" class="hash-link" aria-label="Direct link to 👥 User Management" title="Direct link to 👥 User Management">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="view-all-users">View All Users<a href="#view-all-users" class="hash-link" aria-label="Direct link to View All Users" title="Direct link to View All Users">​</a></h3>
+<ul>
+<li><strong>Farmer Accounts</strong>: All registered farmer profiles</li>
+<li><strong>Consumer Accounts</strong>: Consumer registration data</li>
+<li><strong>Admin Accounts</strong>: Other administrator accounts</li>
+<li><strong>Suspended Accounts</strong>: Temporarily disabled accounts</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-actions">User Actions<a href="#user-actions" class="hash-link" aria-label="Direct link to User Actions" title="Direct link to User Actions">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="approve-users">Approve Users<a href="#approve-users" class="hash-link" aria-label="Direct link to Approve Users" title="Direct link to Approve Users">​</a></h4>
+<ol>
+<li><strong>Review Applications</strong>: Check new user registrations</li>
+<li><strong>Verify Information</strong>: Confirm identity and contact details</li>
+<li><strong>Approve Account</strong>: Grant access to platform</li>
+<li><strong>Send Welcome</strong>: Send welcome email and instructions</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="suspend-users">Suspend Users<a href="#suspend-users" class="hash-link" aria-label="Direct link to Suspend Users" title="Direct link to Suspend Users">​</a></h4>
+<ol>
+<li><strong>Identify Issues</strong>: Review reported problems</li>
+<li><strong>Investigate</strong>: Gather evidence and information</li>
+<li><strong>Temporary Suspension</strong>: Suspend account temporarily</li>
+<li><strong>Permanent Ban</strong>: Ban account for serious violations</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="edit-user-information">Edit User Information<a href="#edit-user-information" class="hash-link" aria-label="Direct link to Edit User Information" title="Direct link to Edit User Information">​</a></h4>
+<ul>
+<li><strong>Update Profile</strong>: Modify user details and preferences</li>
+<li><strong>Change Permissions</strong>: Adjust user access levels</li>
+<li><strong>Reset Password</strong>: Generate new passwords for users</li>
+<li><strong>Update Contact</strong>: Change email and phone information</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="delete-users">Delete Users<a href="#delete-users" class="hash-link" aria-label="Direct link to Delete Users" title="Direct link to Delete Users">​</a></h4>
+<ul>
+<li><strong>Remove Account</strong>: Permanently delete user accounts</li>
+<li><strong>Data Cleanup</strong>: Remove associated data and content</li>
+<li><strong>Archive Records</strong>: Keep records for legal compliance</li>
+<li><strong>Notify User</strong>: Send deletion confirmation email</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="search-and-filter">Search and Filter<a href="#search-and-filter" class="hash-link" aria-label="Direct link to Search and Filter" title="Direct link to Search and Filter">​</a></h3>
+<ul>
+<li><strong>Search by Name</strong>: Find users by full name</li>
+<li><strong>Search by Email</strong>: Find users by email address</li>
+<li><strong>Filter by Role</strong>: Show farmers, consumers, or admins</li>
+<li><strong>Filter by Status</strong>: Show active, suspended, or pending users</li>
+<li><strong>Filter by Date</strong>: Show users registered in specific period</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-category-management">📦 Category Management<a href="#-category-management" class="hash-link" aria-label="Direct link to 📦 Category Management" title="Direct link to 📦 Category Management">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="view-categories">View Categories<a href="#view-categories" class="hash-link" aria-label="Direct link to View Categories" title="Direct link to View Categories">​</a></h3>
+<ul>
+<li><strong>Product Categories</strong>: All agricultural product types</li>
+<li><strong>Subcategories</strong>: Specific product varieties</li>
+<li><strong>Category Hierarchy</strong>: Parent-child relationships</li>
+<li><strong>Category Statistics</strong>: Usage and popularity metrics</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="add-new-categories">Add New Categories<a href="#add-new-categories" class="hash-link" aria-label="Direct link to Add New Categories" title="Direct link to Add New Categories">​</a></h3>
+<ol>
+<li><strong>Category Name</strong>: Enter descriptive category name</li>
+<li><strong>Description</strong>: Add detailed category description</li>
+<li><strong>Parent Category</strong>: Select parent category if applicable</li>
+<li><strong>Icon/Image</strong>: Upload category icon or image</li>
+<li><strong>Settings</strong>: Configure category-specific settings</li>
+<li><strong>Save</strong>: Create the new category</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="edit-categories">Edit Categories<a href="#edit-categories" class="hash-link" aria-label="Direct link to Edit Categories" title="Direct link to Edit Categories">​</a></h3>
+<ul>
+<li><strong>Update Information</strong>: Modify name, description, and settings</li>
+<li><strong>Change Hierarchy</strong>: Move categories up or down</li>
+<li><strong>Update Media</strong>: Change icons and images</li>
+<li><strong>Modify Settings</strong>: Adjust category-specific options</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="delete-categories">Delete Categories<a href="#delete-categories" class="hash-link" aria-label="Direct link to Delete Categories" title="Direct link to Delete Categories">​</a></h3>
+<ul>
+<li><strong>Check Usage</strong>: Ensure no products use this category</li>
+<li><strong>Migrate Products</strong>: Move products to other categories</li>
+<li><strong>Confirm Deletion</strong>: Verify permanent removal</li>
+<li><strong>Update References</strong>: Update any category references</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-analytics-and-reports">📈 Analytics and Reports<a href="#-analytics-and-reports" class="hash-link" aria-label="Direct link to 📈 Analytics and Reports" title="Direct link to 📈 Analytics and Reports">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-analytics">System Analytics<a href="#system-analytics" class="hash-link" aria-label="Direct link to System Analytics" title="Direct link to System Analytics">​</a></h3>
+<ul>
+<li><strong>User Growth</strong>: New user registration trends</li>
+<li><strong>Activity Metrics</strong>: Platform usage statistics</li>
+<li><strong>Performance Data</strong>: System response times and reliability</li>
+<li><strong>Revenue Analytics</strong>: Financial performance and trends</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-analytics">User Analytics<a href="#user-analytics" class="hash-link" aria-label="Direct link to User Analytics" title="Direct link to User Analytics">​</a></h3>
+<ul>
+<li><strong>Farmer Performance</strong>: Individual farmer statistics</li>
+<li><strong>Consumer Behavior</strong>: Consumer scanning and rating patterns</li>
+<li><strong>Geographic Data</strong>: User distribution by location</li>
+<li><strong>Engagement Metrics</strong>: User activity and retention rates</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="product-analytics">Product Analytics<a href="#product-analytics" class="hash-link" aria-label="Direct link to Product Analytics" title="Direct link to Product Analytics">​</a></h3>
+<ul>
+<li><strong>Batch Creation</strong>: Number of batches created over time</li>
+<li><strong>QR Code Usage</strong>: Scanning frequency and patterns</li>
+<li><strong>Product Categories</strong>: Most popular product types</li>
+<li><strong>Quality Metrics</strong>: Average ratings and review trends</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="financial-reports">Financial Reports<a href="#financial-reports" class="hash-link" aria-label="Direct link to Financial Reports" title="Direct link to Financial Reports">​</a></h3>
+<ul>
+<li><strong>Revenue Tracking</strong>: Platform revenue and farmer earnings</li>
+<li><strong>Transaction History</strong>: Payment and commission records</li>
+<li><strong>Financial Projections</strong>: Future revenue forecasts</li>
+<li><strong>Cost Analysis</strong>: Platform operating costs and efficiency</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="export-options">Export Options<a href="#export-options" class="hash-link" aria-label="Direct link to Export Options" title="Direct link to Export Options">​</a></h3>
+<ul>
+<li><strong>CSV Export</strong>: Download data in spreadsheet format</li>
+<li><strong>PDF Reports</strong>: Generate printable reports</li>
+<li><strong>API Access</strong>: Programmatic data access</li>
+<li><strong>Scheduled Reports</strong>: Automated report generation</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-system-settings">⚙️ System Settings<a href="#️-system-settings" class="hash-link" aria-label="Direct link to ⚙️ System Settings" title="Direct link to ⚙️ System Settings">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="platform-configuration">Platform Configuration<a href="#platform-configuration" class="hash-link" aria-label="Direct link to Platform Configuration" title="Direct link to Platform Configuration">​</a></h3>
+<ul>
+<li><strong>General Settings</strong>: Platform name, logo, and branding</li>
+<li><strong>Feature Toggles</strong>: Enable/disable platform features</li>
+<li><strong>Default Values</strong>: Set default settings for new users</li>
+<li><strong>Regional Settings</strong>: Language and currency options</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-settings">Security Settings<a href="#security-settings" class="hash-link" aria-label="Direct link to Security Settings" title="Direct link to Security Settings">​</a></h3>
+<ul>
+<li><strong>Authentication</strong>: Password policies and 2FA settings</li>
+<li><strong>Session Management</strong>: Login timeout and security rules</li>
+<li><strong>API Security</strong>: API key management and rate limiting</li>
+<li><strong>Data Protection</strong>: Privacy and data retention policies</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="email-configuration">Email Configuration<a href="#email-configuration" class="hash-link" aria-label="Direct link to Email Configuration" title="Direct link to Email Configuration">​</a></h3>
+<ul>
+<li><strong>SMTP Settings</strong>: Email server configuration</li>
+<li><strong>Email Templates</strong>: Customize notification emails</li>
+<li><strong>Notification Rules</strong>: Automated email triggers</li>
+<li><strong>Email Testing</strong>: Test email delivery and formatting</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="content-moderation">Content Moderation<a href="#content-moderation" class="hash-link" aria-label="Direct link to Content Moderation" title="Direct link to Content Moderation">​</a></h3>
+<ul>
+<li><strong>Review Settings</strong>: Automatic review filtering rules</li>
+<li><strong>Spam Protection</strong>: Anti-spam and bot detection</li>
+<li><strong>Content Filters</strong>: Inappropriate content detection</li>
+<li><strong>Moderation Queue</strong>: Manual review workflow settings</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-security-management">🛡️ Security Management<a href="#️-security-management" class="hash-link" aria-label="Direct link to 🛡️ Security Management" title="Direct link to 🛡️ Security Management">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="access-control">Access Control<a href="#access-control" class="hash-link" aria-label="Direct link to Access Control" title="Direct link to Access Control">​</a></h3>
+<ul>
+<li><strong>Admin Permissions</strong>: Role-based access control</li>
+<li><strong>API Access</strong>: API key management and restrictions</li>
+<li><strong>IP Whitelisting</strong>: Restrict access by IP address</li>
+<li><strong>Session Monitoring</strong>: Track admin login sessions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="data-protection">Data Protection<a href="#data-protection" class="hash-link" aria-label="Direct link to Data Protection" title="Direct link to Data Protection">​</a></h3>
+<ul>
+<li><strong>Encryption</strong>: Data encryption settings</li>
+<li><strong>Backup Configuration</strong>: Automated backup schedules</li>
+<li><strong>Data Retention</strong>: Data storage and deletion policies</li>
+<li><strong>Privacy Compliance</strong>: GDPR and privacy law compliance</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-monitoring">System Monitoring<a href="#system-monitoring" class="hash-link" aria-label="Direct link to System Monitoring" title="Direct link to System Monitoring">​</a></h3>
+<ul>
+<li><strong>Log Monitoring</strong>: System and security log analysis</li>
+<li><strong>Performance Alerts</strong>: Server performance notifications</li>
+<li><strong>Error Tracking</strong>: Application error monitoring</li>
+<li><strong>Security Scanning</strong>: Vulnerability assessment tools</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-support-management">🆘 Support Management<a href="#-support-management" class="hash-link" aria-label="Direct link to 🆘 Support Management" title="Direct link to 🆘 Support Management">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="support-tickets">Support Tickets<a href="#support-tickets" class="hash-link" aria-label="Direct link to Support Tickets" title="Direct link to Support Tickets">​</a></h3>
+<ul>
+<li><strong>View Tickets</strong>: All user support requests</li>
+<li><strong>Priority Levels</strong>: High, medium, low priority tickets</li>
+<li><strong>Status Tracking</strong>: Open, in progress, resolved, closed</li>
+<li><strong>Assignment</strong>: Assign tickets to support staff</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="issue-resolution">Issue Resolution<a href="#issue-resolution" class="hash-link" aria-label="Direct link to Issue Resolution" title="Direct link to Issue Resolution">​</a></h3>
+<ol>
+<li><strong>Review Ticket</strong>: Read user&#x27;s problem description</li>
+<li><strong>Investigate</strong>: Gather additional information</li>
+<li><strong>Provide Solution</strong>: Offer resolution or workaround</li>
+<li><strong>Follow Up</strong>: Ensure issue is resolved satisfactorily</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="knowledge-base">Knowledge Base<a href="#knowledge-base" class="hash-link" aria-label="Direct link to Knowledge Base" title="Direct link to Knowledge Base">​</a></h3>
+<ul>
+<li><strong>FAQ Management</strong>: Create and update frequently asked questions</li>
+<li><strong>Help Articles</strong>: Write detailed help documentation</li>
+<li><strong>Video Tutorials</strong>: Create instructional videos</li>
+<li><strong>User Guides</strong>: Comprehensive user documentation</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="communication-tools">Communication Tools<a href="#communication-tools" class="hash-link" aria-label="Direct link to Communication Tools" title="Direct link to Communication Tools">​</a></h3>
+<ul>
+<li><strong>Email Support</strong>: Direct email communication</li>
+<li><strong>Live Chat</strong>: Real-time chat support</li>
+<li><strong>Phone Support</strong>: Voice call support</li>
+<li><strong>WhatsApp</strong>: Mobile messaging support</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-maintenance-tasks">🔧 Maintenance Tasks<a href="#-maintenance-tasks" class="hash-link" aria-label="Direct link to 🔧 Maintenance Tasks" title="Direct link to 🔧 Maintenance Tasks">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-maintenance">System Maintenance<a href="#system-maintenance" class="hash-link" aria-label="Direct link to System Maintenance" title="Direct link to System Maintenance">​</a></h3>
+<ul>
+<li><strong>Database Optimization</strong>: Regular database maintenance</li>
+<li><strong>Cache Clearing</strong>: Clear system caches</li>
+<li><strong>Log Cleanup</strong>: Remove old log files</li>
+<li><strong>Performance Tuning</strong>: Optimize system performance</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="content-management">Content Management<a href="#content-management" class="hash-link" aria-label="Direct link to Content Management" title="Direct link to Content Management">​</a></h3>
+<ul>
+<li><strong>Content Review</strong>: Review and approve user content</li>
+<li><strong>Spam Removal</strong>: Remove spam and inappropriate content</li>
+<li><strong>Data Cleanup</strong>: Remove outdated or incorrect data</li>
+<li><strong>Archive Management</strong>: Archive old data and content</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="backup-and-recovery">Backup and Recovery<a href="#backup-and-recovery" class="hash-link" aria-label="Direct link to Backup and Recovery" title="Direct link to Backup and Recovery">​</a></h3>
+<ul>
+<li><strong>Regular Backups</strong>: Automated backup scheduling</li>
+<li><strong>Backup Testing</strong>: Verify backup integrity</li>
+<li><strong>Recovery Procedures</strong>: Data recovery processes</li>
+<li><strong>Disaster Planning</strong>: Emergency response procedures</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="system-updates">System Updates<a href="#system-updates" class="hash-link" aria-label="Direct link to System Updates" title="Direct link to System Updates">​</a></h3>
+<ul>
+<li><strong>Version Management</strong>: Track software versions</li>
+<li><strong>Update Scheduling</strong>: Plan system updates</li>
+<li><strong>Testing Procedures</strong>: Test updates before deployment</li>
+<li><strong>Rollback Procedures</strong>: Emergency rollback processes</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-admin-best-practices">📊 Admin Best Practices<a href="#-admin-best-practices" class="hash-link" aria-label="Direct link to 📊 Admin Best Practices" title="Direct link to 📊 Admin Best Practices">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="daily-tasks">Daily Tasks<a href="#daily-tasks" class="hash-link" aria-label="Direct link to Daily Tasks" title="Direct link to Daily Tasks">​</a></h3>
+<ul>
+<li><strong>Monitor Dashboard</strong>: Check system health and alerts</li>
+<li><strong>Review Reports</strong>: Analyze daily activity reports</li>
+<li><strong>Handle Support</strong>: Respond to urgent support requests</li>
+<li><strong>Content Moderation</strong>: Review flagged content</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="weekly-tasks">Weekly Tasks<a href="#weekly-tasks" class="hash-link" aria-label="Direct link to Weekly Tasks" title="Direct link to Weekly Tasks">​</a></h3>
+<ul>
+<li><strong>User Management</strong>: Review and approve new users</li>
+<li><strong>Analytics Review</strong>: Analyze weekly performance metrics</li>
+<li><strong>System Maintenance</strong>: Perform routine maintenance</li>
+<li><strong>Team Meetings</strong>: Coordinate with support team</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="monthly-tasks">Monthly Tasks<a href="#monthly-tasks" class="hash-link" aria-label="Direct link to Monthly Tasks" title="Direct link to Monthly Tasks">​</a></h3>
+<ul>
+<li><strong>Performance Review</strong>: Comprehensive system analysis</li>
+<li><strong>Security Audit</strong>: Review security settings and logs</li>
+<li><strong>Backup Verification</strong>: Test backup and recovery procedures</li>
+<li><strong>Policy Updates</strong>: Review and update platform policies</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quarterly-tasks">Quarterly Tasks<a href="#quarterly-tasks" class="hash-link" aria-label="Direct link to Quarterly Tasks" title="Direct link to Quarterly Tasks">​</a></h3>
+<ul>
+<li><strong>System Optimization</strong>: Major performance improvements</li>
+<li><strong>Feature Planning</strong>: Plan new features and improvements</li>
+<li><strong>User Feedback</strong>: Analyze user feedback and suggestions</li>
+<li><strong>Strategic Planning</strong>: Long-term platform development</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-success-metrics">🎯 Success Metrics<a href="#-success-metrics" class="hash-link" aria-label="Direct link to 🎯 Success Metrics" title="Direct link to 🎯 Success Metrics">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="platform-health">Platform Health<a href="#platform-health" class="hash-link" aria-label="Direct link to Platform Health" title="Direct link to Platform Health">​</a></h3>
+<ul>
+<li><strong>Uptime</strong>: 99.9% system availability</li>
+<li><strong>Response Time</strong>: Less than 2 seconds average response time</li>
+<li><strong>Error Rate</strong>: Less than 0.1% error rate</li>
+<li><strong>User Satisfaction</strong>: Greater than 90% user satisfaction score</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="user-engagement">User Engagement<a href="#user-engagement" class="hash-link" aria-label="Direct link to User Engagement" title="Direct link to User Engagement">​</a></h3>
+<ul>
+<li><strong>Active Users</strong>: Daily and monthly active users</li>
+<li><strong>Retention Rate</strong>: User retention over time</li>
+<li><strong>Feature Adoption</strong>: Usage of platform features</li>
+<li><strong>Support Satisfaction</strong>: Support ticket resolution satisfaction</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="business-metrics">Business Metrics<a href="#business-metrics" class="hash-link" aria-label="Direct link to Business Metrics" title="Direct link to Business Metrics">​</a></h3>
+<ul>
+<li><strong>Revenue Growth</strong>: Monthly and yearly revenue growth</li>
+<li><strong>Farmer Earnings</strong>: Average farmer earnings</li>
+<li><strong>Market Expansion</strong>: Geographic and product expansion</li>
+<li><strong>Cost Efficiency</strong>: Platform operating cost efficiency</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-contact-and-support">📞 Contact and Support<a href="#-contact-and-support" class="hash-link" aria-label="Direct link to 📞 Contact and Support" title="Direct link to 📞 Contact and Support">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="internal-communication">Internal Communication<a href="#internal-communication" class="hash-link" aria-label="Direct link to Internal Communication" title="Direct link to Internal Communication">​</a></h3>
+<ul>
+<li><strong>Team Chat</strong>: Internal communication platform</li>
+<li><strong>Email Lists</strong>: Admin email distribution lists</li>
+<li><strong>Video Calls</strong>: Regular team meetings</li>
+<li><strong>Documentation</strong>: Internal knowledge base</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="external-support">External Support<a href="#external-support" class="hash-link" aria-label="Direct link to External Support" title="Direct link to External Support">​</a></h3>
+<ul>
+<li><strong>Vendor Support</strong>: Technical support from vendors</li>
+<li><strong>Consulting Services</strong>: External consultants and advisors</li>
+<li><strong>Legal Support</strong>: Legal and compliance assistance</li>
+<li><strong>Financial Services</strong>: Accounting and financial support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="emergency-contacts">Emergency Contacts<a href="#emergency-contacts" class="hash-link" aria-label="Direct link to Emergency Contacts" title="Direct link to Emergency Contacts">​</a></h3>
+<ul>
+<li><strong>Technical Emergency</strong>: 24/7 technical support hotline</li>
+<li><strong>Security Incident</strong>: Security team contact information</li>
+<li><strong>Legal Issues</strong>: Legal team contact information</li>
+<li><strong>Public Relations</strong>: PR team for media inquiries</li>
+</ul>
+<hr>
+<p><strong>Thank you for managing AgriTrace!</strong> 👨‍💼</p>
+<p><em>Empowering administrators with comprehensive platform management tools.</em></p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="theme-doc-footer-edit-meta-row row"><div class="col"><a href="https://github.com/vietvo371/AgriTrace_docs/edit/main/docs/Guides/admin-guide.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_vwxv"></div></div></footer></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/AgriTrace_docs/Guides/consumer-guide/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">🛒 Consumer Guide</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/AgriTrace_docs/Deployment/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">🚀 Deployment Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#-welcome-to-agritrace-admin" class="table-of-contents__link toc-highlight">👨‍💼 Welcome to AgriTrace Admin</a></li><li><a href="#-admin-access" class="table-of-contents__link toc-highlight">🔐 Admin Access</a><ul><li><a href="#login-process" class="table-of-contents__link toc-highlight">Login Process</a></li><li><a href="#admin-roles" class="table-of-contents__link toc-highlight">Admin Roles</a></li></ul></li><li><a href="#-dashboard-overview" class="table-of-contents__link toc-highlight">📊 Dashboard Overview</a><ul><li><a href="#system-statistics" class="table-of-contents__link toc-highlight">System Statistics</a></li><li><a href="#real-time-monitoring" class="table-of-contents__link toc-highlight">Real-Time Monitoring</a></li><li><a href="#quick-actions" class="table-of-contents__link toc-highlight">Quick Actions</a></li></ul></li><li><a href="#-user-management" class="table-of-contents__link toc-highlight">👥 User Management</a><ul><li><a href="#view-all-users" class="table-of-contents__link toc-highlight">View All Users</a></li><li><a href="#user-actions" class="table-of-contents__link toc-highlight">User Actions</a></li><li><a href="#search-and-filter" class="table-of-contents__link toc-highlight">Search and Filter</a></li></ul></li><li><a href="#-category-management" class="table-of-contents__link toc-highlight">📦 Category Management</a><ul><li><a href="#view-categories" class="table-of-contents__link toc-highlight">View Categories</a></li><li><a href="#add-new-categories" class="table-of-contents__link toc-highlight">Add New Categories</a></li><li><a href="#edit-categories" class="table-of-contents__link toc-highlight">Edit Categories</a></li><li><a href="#delete-categories" class="table-of-contents__link toc-highlight">Delete Categories</a></li></ul></li><li><a href="#-analytics-and-reports" class="table-of-contents__link toc-highlight">📈 Analytics and Reports</a><ul><li><a href="#system-analytics" class="table-of-contents__link toc-highlight">System Analytics</a></li><li><a href="#user-analytics" class="table-of-contents__link toc-highlight">User Analytics</a></li><li><a href="#product-analytics" class="table-of-contents__link toc-highlight">Product Analytics</a></li><li><a href="#financial-reports" class="table-of-contents__link toc-highlight">Financial Reports</a></li><li><a href="#export-options" class="table-of-contents__link toc-highlight">Export Options</a></li></ul></li><li><a href="#️-system-settings" class="table-of-contents__link toc-highlight">⚙️ System Settings</a><ul><li><a href="#platform-configuration" class="table-of-contents__link toc-highlight">Platform Configuration</a></li><li><a href="#security-settings" class="table-of-contents__link toc-highlight">Security Settings</a></li><li><a href="#email-configuration" class="table-of-contents__link toc-highlight">Email Configuration</a></li><li><a href="#content-moderation" class="table-of-contents__link toc-highlight">Content Moderation</a></li></ul></li><li><a href="#️-security-management" class="table-of-contents__link toc-highlight">🛡️ Security Management</a><ul><li><a href="#access-control" class="table-of-contents__link toc-highlight">Access Control</a></li><li><a href="#data-protection" class="table-of-contents__link toc-highlight">Data Protection</a></li><li><a href="#system-monitoring" class="table-of-contents__link toc-highlight">System Monitoring</a></li></ul></li><li><a href="#-support-management" class="table-of-contents__link toc-highlight">🆘 Support Management</a><ul><li><a href="#support-tickets" class="table-of-contents__link toc-highlight">Support Tickets</a></li><li><a href="#issue-resolution" class="table-of-contents__link toc-highlight">Issue Resolution</a></li><li><a href="#knowledge-base" class="table-of-contents__link toc-highlight">Knowledge Base</a></li><li><a href="#communication-tools" class="table-of-contents__link toc-highlight">Communication Tools</a></li></ul></li><li><a href="#-maintenance-tasks" class="table-of-contents__link toc-highlight">🔧 Maintenance Tasks</a><ul><li><a href="#system-maintenance" class="table-of-contents__link toc-highlight">System Maintenance</a></li><li><a href="#content-management" class="table-of-contents__link toc-highlight">Content Management</a></li><li><a href="#backup-and-recovery" class="table-of-contents__link toc-highlight">Backup and Recovery</a></li><li><a href="#system-updates" class="table-of-contents__link toc-highlight">System Updates</a></li></ul></li><li><a href="#-admin-best-practices" class="table-of-contents__link toc-highlight">📊 Admin Best Practices</a><ul><li><a href="#daily-tasks" class="table-of-contents__link toc-highlight">Daily Tasks</a></li><li><a href="#weekly-tasks" class="table-of-contents__link toc-highlight">Weekly Tasks</a></li><li><a href="#monthly-tasks" class="table-of-contents__link toc-highlight">Monthly Tasks</a></li><li><a href="#quarterly-tasks" class="table-of-contents__link toc-highlight">Quarterly Tasks</a></li></ul></li><li><a href="#-success-metrics" class="table-of-contents__link toc-highlight">🎯 Success Metrics</a><ul><li><a href="#platform-health" class="table-of-contents__link toc-highlight">Platform Health</a></li><li><a href="#user-engagement" class="table-of-contents__link toc-highlight">User Engagement</a></li><li><a href="#business-metrics" class="table-of-contents__link toc-highlight">Business Metrics</a></li></ul></li><li><a href="#-contact-and-support" class="table-of-contents__link toc-highlight">📞 Contact and Support</a><ul><li><a href="#internal-communication" class="table-of-contents__link toc-highlight">Internal Communication</a></li><li><a href="#external-support" class="table-of-contents__link toc-highlight">External Support</a></li><li><a href="#emergency-contacts" class="table-of-contents__link toc-highlight">Emergency Contacts</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Documentation</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/intro/">Getting Started</a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Architecture/">Architecture</a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Installation/">Installation</a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/api/">API Reference</a></li></ul></div><div class="col footer__col"><div class="footer__title">Features</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Features/#qr-code-generation">QR Code Generation</a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Features/#product-tracing">Product Tracing</a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Features/#user-management">User Management</a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/vietvo371/AgriTraceApp" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/vietvo371/AgriTraceApp/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">Issues<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a class="footer__link-item" href="/AgriTrace_docs/Contributing/">Contributing</a></li></ul></div><div class="col footer__col"><div class="footer__title">Team</div><ul class="footer__items clean-list"><li class="footer__item"><a href="mailto:thanhtruong23111999@gmail.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Lê Thanh Trường<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="mailto:vietvo371@gmail.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Võ Văn Việt<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="mailto:kkdn011@gmail.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Nguyễn Ngọc Duy Thái<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="mailto:vannhan130504@gmail.com" target="_blank" rel="noopener noreferrer" class="footer__link-item">Nguyễn Văn Nhân<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 AgriTrace. Built with ❤️ by DTU-DZ Team.</div></div></div></footer></div>
+</body>
+</html>

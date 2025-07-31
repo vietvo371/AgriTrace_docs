@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkagritrace_docs=self.webpackChunkagritrace_docs||[]).push([[142],{7579:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-docs","id":"api"}')}}]);

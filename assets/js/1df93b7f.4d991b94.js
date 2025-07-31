@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkagritrace_docs=self.webpackChunkagritrace_docs||[]).push([[583],{6866:(e,c,r)=>{r.r(c),r.d(c,{default:()=>u});var t=r(6025),a=r(6540),s=r(6347);function u(){const e=(0,s.W6)(),c=(0,t.A)("/");return(0,a.useEffect)(()=>{e.replace(c+"intro")},[e,c]),null}}}]);
