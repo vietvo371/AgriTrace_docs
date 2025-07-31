@@ -75,7 +75,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/vietvo371/AgriTrace',
+          href: 'https://github.com/vietvo371/AgriTraceApp',
           position: 'right',
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
@@ -128,11 +128,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/vietvo371/AgriTrace',
+              href: 'https://github.com/vietvo371/AgriTraceApp',
             },
             {
               label: 'Issues',
-              href: 'https://github.com/vietvo371/AgriTrace/issues',
+              href: 'https://github.com/vietvo371/AgriTraceApp/issues',
             },
             {
               label: 'Contributing',
@@ -144,16 +144,20 @@ const config: Config = {
           title: 'Team',
           items: [
             {
-              label: 'Nguyễn Quốc Long',
-              href: 'mailto:quoclongdng@gmail.com',
-            },
-            {
               label: 'Lê Thanh Trường',
               href: 'mailto:thanhtruong23111999@gmail.com',
             },
             {
               label: 'Võ Văn Việt',
               href: 'mailto:vietvo371@gmail.com',
+            },
+            {
+              label: 'Nguyễn Ngọc Duy Thái',
+              href: 'mailto:kkdn011@gmail.com',
+            },
+            {
+              label: 'Nguyễn Văn Nhân',
+              href: 'mailto:vannhan130504@gmail.com',
             },
           ],
         },

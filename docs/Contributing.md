@@ -42,7 +42,7 @@ Before you start contributing, make sure you have the following installed:
 
 ```bash
 # Clone the main repository
-git clone https://github.com/vietvo371/AgriTrace.git
+git clone https://github.com/vietvo371/AgriTraceApp.git
 cd AgriTrace
 
 # Fork the repository on GitHub first, then clone your fork

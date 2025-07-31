@@ -50,6 +50,33 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Full-width banner styles */
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsive banner for different screen sizes */
+@media (max-width: 768px) {
+  .banner-image {
+    border-radius: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-image {
+    border-radius: 0;
+    margin: 0 -1rem;
+    width: calc(100% + 2rem);
+  }
+}
+
 .header-gitlab-link:hover {
   opacity: 0.6;
 }

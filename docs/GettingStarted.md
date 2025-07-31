@@ -1,5 +1,6 @@
 # AgriTrace Overview
-![Banner](../static/img/banner.jpg)
+
+<img src={require('../static/img/banner.jpg').default} alt="Banner" className="banner-image" />
 
 > *"Empowering Vietnamese farmers with digital traceability"*
 
@@ -153,9 +154,10 @@
 
 | Role      | Name                    | Email                                                                 |
 | --------- | ----------------------- | --------------------------------------------------------------------- |
-| Leader    | **Nguyen Quoc Long**     | [quoclongdng@gmail.com](mailto:quoclongdng@gmail.com)                 |
-| Developer | **Le Thanh Truong**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
-| Developer | **Vo Van Viet**          | [vietvo371@gmail.com](mailto:vietvo371@gmail.com)                     |
+| Mentor    | **Le Thanh Truong**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
+| Member    | **Vo Van Viet**          | [vietvo371@gmail.com](mailto:vietvo371@gmail.com)                     |
+| Member    | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
+| Member    | **Nguyễn Văn Nhân**      | [vannhan130504@gmail.com](mailto:vannhan130504@gmail.com)             |
 
 ## 🚀 Quick Start
 
