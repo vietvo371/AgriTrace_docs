@@ -26,6 +26,8 @@ const config: Config = {
         path: 'api',
         routeBasePath: 'api',
         sidebarPath: './sidebars.api.ts',
+        sidebarCollapsible: true,
+        sidebarCollapsed: false,
       },
     ],
   ],
@@ -66,6 +68,7 @@ const config: Config = {
           sidebarId: 'apiSidebar',
           position: 'left',
           label: 'API Reference',
+          docsPluginId: 'api',
         },
         {
           type: 'localeDropdown',

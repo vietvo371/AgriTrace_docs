@@ -10,16 +10,20 @@ AgriTrace is a comprehensive agricultural product traceability platform designed
 
 ## 🌾 What is AgriTrace?
 
-AgriTrace is a mobile and web platform that enables farmers to create QR codes for tracing agricultural product origins. Whether it's 20kg mango crates or 5kg vegetable bundles, our platform emphasizes simplicity and low cost, making it suitable for traditional markets and social media sales.
+AgriTrace is a comprehensive mobile and web platform that combines traditional QR code traceability with modern Web3 blockchain technology. Our platform enables Vietnamese farmers to create QR codes for tracing agricultural product origins while leveraging blockchain for immutable verification. Whether it's 20kg mango crates or 5kg vegetable bundles, our platform emphasizes simplicity, low cost, and ease of use, making it suitable for traditional markets, social media sales, and export markets.
 
 ### Key Features
 
-- **Simple QR Code Generation**: Create unique QR codes for each product batch
-- **No Complex Technology**: No blockchain, RFID, or IoT required
-- **Farmer-Friendly Interface**: Designed with Vietnamese farmers in mind
+- **Hybrid QR-Blockchain System**: QR codes with blockchain verification
+- **Web3 Integration**: MetaMask wallet and smart contract integration
+- **Decentralized Storage**: IPFS for immutable product records
+- **Farmer-Friendly Interface**: Designed specifically with Vietnamese farmers in mind
 - **Cost-Effective Solution**: Minimal setup and maintenance costs
-- **Mobile-First Design**: Works seamlessly on smartphones
-- **Expiration-Based Security**: QR codes expire to prevent reuse
+- **Mobile-First Design**: Works seamlessly on smartphones with offline capability
+- **Expiration-Based Security**: QR codes expire after 6 months to prevent reuse
+- **Multi-Language Support**: Available in Vietnamese and English
+- **Real-Time Analytics**: Track performance and consumer feedback
+- **Blockchain Verification**: Immutable product authenticity records
 
 ## 🎯 Target Users
 
@@ -42,38 +46,61 @@ AgriTrace is a mobile and web platform that enables farmers to create QR codes f
 
 ## 🏗️ Technology Stack
 
-### Frontend
-- **React Native**: Cross-platform mobile app
-- **React.js**: Web dashboard
+### Mobile App Layer
+- **React Native**: Cross-platform mobile application
+- **Expo**: Development framework and tools
+- **Camera Integration**: Native QR scanning capability
+- **GPS Location**: Farm location tracking
+- **Offline Support**: Local data storage with AsyncStorage
+
+### Web Dashboard Layer
+- **React.js**: Modern web interface
 - **TypeScript**: Type-safe development
+- **Material-UI**: Professional UI components
+- **Responsive Design**: Works on all devices
+- **Real-time Analytics**: Live data visualization
 
-### Backend
-- **Node.js**: Server runtime
-- **Express.js**: Web framework
-- **JWT**: Authentication
+### Backend API Layer
+- **Node.js**: Server runtime environment
+- **Express.js**: Web application framework
+- **JWT Authentication**: Secure user authentication
+- **Rate Limiting**: API protection and security
+- **Data Validation**: Input sanitization and validation
 
-### Database
-- **MySQL/PostgreSQL**: Relational database
-- **Sequelize**: ORM for database management
+### Database & Storage Layer
+- **MySQL/PostgreSQL**: Relational database management
+- **Redis**: Caching and session storage
+- **AWS S3**: File storage for images and documents
+- **QR Code Generation**: Unique code creation service
+
+### Web3 & Blockchain Layer
+- **Web3.js**: Ethereum blockchain integration
+- **MetaMask**: Wallet connection and transaction signing
+- **Solidity**: Smart contract development
+- **IPFS**: Decentralized file storage
+- **Filecoin**: Distributed storage network
+- **Pinata IPFS**: IPFS pinning service
 
 ### QR Code System
-- **qrcode.js**: QR code generation
-- **Camera API**: Native QR scanning
-- **Expiration Logic**: Time-based validation
+- **qrcode.js**: QR code generation library
+- **Camera API**: Native mobile scanning
+- **Expiration Logic**: Time-based validation (6 months)
+- **Security Features**: Tamper-proof generation with blockchain verification
+- **Mobile Optimization**: Fast scanning and display
 
 ## 🔄 Core Workflow
 
-```mermaid
-graph TD
-    A[Farmer Registration] --> B[Create Product Batch]
-    B --> C[Input Product Details]
-    C --> D[Generate QR Code]
-    D --> E[Print & Attach QR]
-    E --> F[Consumer Scans QR]
-    F --> G[View Product Details]
-    G --> H[Rate & Review]
-    H --> I[Admin Management]
-```
+| Step | Process | User | Description |
+|------|---------|------|-------------|
+| 1 | Farmer Registration | Farmer | Create account and profile |
+| 2 | Create Product Batch | Farmer | Start new product batch |
+| 3 | Input Product Details | Farmer | Add product information |
+| 4 | Generate QR Code | System | Create unique QR code |
+| 5 | Print & Attach QR | Farmer | Apply QR to product |
+| 6 | Consumer Scans QR | Consumer | Scan QR code |
+| 7 | View Product Details | Consumer | See product information |
+| 8 | Rate & Review | Consumer | Provide feedback |
+| 9 | Admin Management | Admin | Monitor and manage |
 
 ## 📱 Key Screens
 
@@ -96,6 +123,27 @@ graph TD
 - **CategoryManagementScreen**: Product categories
 - **PermissionScreen**: Access control
 
+## ⚙️ System Requirements
+
+| Software | Minimum Version | Purpose |
+|----------|----------------|---------|
+| **Node.js** | >=18.0.0 | Backend runtime environment |
+| **Yarn** | >=1.22.0 | Package manager |
+| **React Native** | 0.72.0 | Mobile app framework |
+| **Expo CLI** | >=6.0.0 | Mobile development tools |
+| **MySQL** | 8.0 | Primary database |
+| **PostgreSQL** | 14.0 | Alternative database |
+| **Redis** | 6.0 | Caching and sessions |
+
+## 🔐 Security Features
+
+- **JWT Authentication**: Secure token-based authentication
+- **Rate Limiting**: API protection against abuse
+- **Data Encryption**: HTTPS and database encryption
+- **QR Code Security**: Tamper-proof generation
+- **Input Validation**: Comprehensive data sanitization
+- **Session Management**: Secure Redis-based sessions
+
 ## 🌍 Vietnamese Market Focus
 
 AgriTrace is specifically designed for the Vietnamese agricultural market:
@@ -114,8 +162,8 @@ Ready to get started with AgriTrace? Check out our [Installation Guide](/Install
 
 Need help? Our team is here to support you:
 
-- **Email**: support@agritrace.vn
-- **Phone**: +84 123 456 789
+- **Email**: dzfullstack@gmail.com
+- **Phone**: +84 376659652
 - **GitHub**: [Report Issues](https://github.com/vietvo371/AgriTrace/issues)
 
 ---

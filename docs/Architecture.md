@@ -1,195 +1,307 @@
-# Kiến trúc EduBridgeTrace
+# AgriTrace System Architecture
 
-## 🏗️ Tổng quan hệ thống
+## 🏗️ System Overview
 
-EduBridgeTrace được thiết kế theo mô hình đa tầng, kết hợp công nghệ Web2 và Web3 để xây dựng một hệ sinh thái chứng nhận học thuật và tuyển dụng hoàn chỉnh.
+AgriTrace is designed as a multi-layer architecture combining mobile, web, and backend technologies to create a comprehensive agricultural product traceability platform for Vietnamese farmers and consumers.
 
-## 🔄 Chi tiết các luồng xử lý
+## 🔄 Detailed Process Flows
 
-### 1. Luồng đăng nhập & quản lý dữ liệu
+### 1. User Authentication & Data Management Flow
 
-| Bước | Từ | Đến | Hoạt động |
-|------|----|----|-----------|
-| 1 | Frontend | Backend | Gửi yêu cầu Login/CRUD qua HTTPS |
-| 2 | Backend | Redis | Kiểm tra cache phiên |
-| 3 | Redis | Backend | Trả về kết quả cache hit/miss |
-| 4 | Backend | MySQL | Truy vấn SQL (nếu cache miss) |
-| 5 | MySQL | Backend | Trả về dữ liệu người dùng |
-| 6 | Backend | Frontend | Trả về phản hồi JSON |
+| Step | From | To | Activity |
+|------|------|----|----------|
+| 1 | Mobile App/Web | Backend API | Send Login/CRUD requests via HTTPS |
+| 2 | Backend API | Redis | Check session cache |
+| 3 | Redis | Backend API | Return cache hit/miss result |
+| 4 | Backend API | MySQL/PostgreSQL | Execute SQL queries (if cache miss) |
+| 5 | MySQL/PostgreSQL | Backend API | Return user data |
+| 6 | Backend API | Mobile App/Web | Return JSON response |
 
-### 2. Luồng phát hành bằng cấp (NFT)
+### 2. Product Batch Creation Flow
 
-| Bước | Từ | Đến | Hoạt động |
-|------|----|----|-----------|
-| 1 | Frontend | MetaMask | Yêu cầu ký giao dịch NFT |
-| 2 | MetaMask | Frontend | Hiển thị xác nhận từ người dùng |
-| 3 | MetaMask | Ethereum | Gửi giao dịch lên blockchain |
-| 4 | Ethereum | MetaMask | Trả về biên nhận và log sự kiện |
-| 5 | MetaMask | Frontend | Thông báo kết quả thành công/thất bại |
+| Step | From | To | Activity |
+|------|------|----|----------|
+| 1 | Mobile App | Backend API | Send batch creation request with product details |
+| 2 | Backend API | Database | Store batch information |
+| 3 | Backend API | QR Service | Generate unique QR code |
+| 4 | QR Service | Backend API | Return QR code image and data |
+| 5 | Backend API | File Storage | Save product photos |
+| 6 | Backend API | Mobile App | Return batch details and QR code |
 
-### 3. Luồng lưu trữ file & metadata
+### 3. QR Code Scanning Flow
 
-| Bước | Từ | Đến | Hoạt động |
-|------|----|----|-----------|
-| 1 | Frontend | Backend | Upload file (CV, chứng chỉ, avatar) |
-| 2 | Backend | AWS S3 | Lưu file tĩnh với bảo mật IAM |
-| 3 | AWS S3 | Backend | Trả về URL và metadata của file |
-| 4 | Backend | IPFS | Pin metadata qua Pinata |
-| 5 | IPFS | Backend | Trả về hash bất biến |
-| 6 | Backend | MySQL | Lưu hash vào database |
-| 7 | Backend | Frontend | Thông báo hoàn tất upload |
+| Step | From | To | Activity |
+|------|------|----|----------|
+| 1 | Consumer Camera | QR Scanner | Scan QR code from product |
+| 2 | QR Scanner | Backend API | Decode QR and fetch product data |
+| 3 | Backend API | Database | Retrieve batch information |
+| 4 | Database | Backend API | Return product details |
+| 5 | Backend API | Consumer Browser | Display product information page |
+| 6 | Consumer Browser | Backend API | Submit rating/review (optional) |
 
-### 4. Luồng xác thực bằng cấp
+### 4. File Storage & Management Flow
 
-| Bước | Từ | Đến | Hoạt động |
-|------|----|----|-----------|
-| 1 | Frontend | Backend | Gửi yêu cầu xác thực bằng cấp |
-| 2 | Backend | Ethereum | Truy vấn smart contract bằng token ID |
-| 3 | Ethereum | Backend | Trả về thông tin NFT và chủ sở hữu |
-| 4 | Backend | IPFS | Lấy metadata từ hash |
-| 5 | IPFS | Backend | Trả về chi tiết bằng cấp (JSON) |
-| 6 | Backend | Frontend | Trả kết quả xác thực + metadata |
+| Step | From | To | Activity |
+|------|------|----|----------|
+| 1 | Mobile App | Backend API | Upload product photos |
+| 2 | Backend API | File Storage | Store images with metadata |
+| 3 | File Storage | Backend API | Return file URLs and metadata |
+| 4 | Backend API | Database | Store file references |
+| 5 | Backend API | Mobile App | Confirm upload completion |
 
-## 🔧 Các thành phần chính
+## 🔧 Core Components
 
-### Frontend Layer (Vue.js)
-- Giao diện người dùng
-- Tương tác Web3
-- Responsive design
+### Mobile App Layer (React Native + Expo)
+- Cross-platform mobile application
+- Camera integration for QR scanning
+- Offline capability with local storage
+- GPS location tracking
+- Photo capture and upload
 
-### Backend Layer (Laravel)
-- REST API
-- Business logic
-- Authentication
+### Web Dashboard Layer (React.js + TypeScript)
+- Admin management interface
+- Analytics and reporting dashboard
+- User management system
+- Real-time data visualization
+- Responsive design for all devices
+
+### Backend API Layer (Node.js + Express.js)
+- RESTful API endpoints
+- JWT authentication and authorization
+- Business logic implementation
+- Rate limiting and security
+- Data validation and sanitization
 
 ### Cache Layer (Redis)
-- Session storage
-- Query cache
-- Pub/sub messaging
+- Session storage and management
+- API response caching
+- Real-time data synchronization
+- Pub/sub messaging system
 
-### Database Layer (MySQL)
-- Data persistence
-- ACID transactions
-- Backup/restore
+### Database Layer (MySQL/PostgreSQL)
+- Relational data storage
+- ACID transaction compliance
+- Data backup and recovery
+- Performance optimization
 
-### Storage Layer (AWS S3)
-- File storage
-- CDN delivery
-- Version control
+### File Storage Layer (AWS S3/Local)
+- Product image storage
+- QR code image generation
+- CDN delivery for fast access
+- Version control and backup
 
-### Blockchain Layer (Ethereum)
-- Smart contracts
-- NFT management
-- Transaction handling
+### QR Code System
+- Unique code generation
+- Product identification
+- Mobile-optimized scanning
+- Offline capability
 
-### Distributed Storage (IPFS/Filecoin)
-- Metadata storage
-- Content addressing
-- Data immutability
+## 📊 System Architecture Overview
 
-## 📚 Tài liệu kỹ thuật
+### Layer Components
+
+| Layer | Components | Technologies | Purpose |
+|-------|------------|--------------|---------|
+| **Mobile App** | Mobile App, Camera Module, GPS Location, Local Storage | React Native + Expo | Cross-platform mobile application with offline capability |
+| **Web Dashboard** | Web Dashboard, Admin Panel, Analytics, Reports | React.js + TypeScript | Admin management and analytics interface |
+| **Backend API** | Backend API, JWT Auth, QR Service, Validation | Node.js + Express.js | RESTful API with authentication and business logic |
+| **Data Layer** | Database, Cache, File Storage | MySQL/PostgreSQL, Redis, AWS S3 | Data persistence, caching, and file storage |
+
+### Data Flow
+
+| From | To | Purpose | Technology |
+|------|----|---------|------------|
+| Mobile App | Backend API | User authentication and data requests | HTTPS/REST |
+| Web Dashboard | Backend API | Admin operations and analytics | HTTPS/REST |
+| Camera Module | Backend API | QR code scanning and image upload | HTTPS/Multipart |
+| GPS Location | Backend API | Farm location tracking | HTTPS/JSON |
+| Backend API | Database | Data persistence and retrieval | SQL |
+| Backend API | Cache | Session management and caching | Redis |
+| Backend API | File Storage | Image and file storage | AWS S3 |
+| QR Service | File Storage | QR code image generation | File System |
+| JWT Auth | Cache | Session storage and validation | Redis |
+
+## 📚 Technical Specifications
 
 ### System Requirements
 | Software | Minimum Version |
 |----------|----------------|
-| Laravel | 12x |
-| Node.js | >=6.0.0 |
-| Npm | 10.9.2 |
-| MetaMask | 11.x |
-| Axios | 1.8.2 |
-| Vite | 6.2.4 |
+| Node.js | >=18.0.0 |
+| Yarn | >=1.22.0 |
+| React Native | 0.72.0 |
+| Expo CLI | >=6.0.0 |
+| MySQL | 8.0 |
+| PostgreSQL | 14.0 |
+| Redis | 6.0 |
 
-## 🔐 Bảo mật
+### Performance Metrics
+- **API Response Time**: Less than 2 seconds average
+- **QR Code Generation**: Less than 1 second
+- **Image Upload**: Less than 5 seconds for 5MB
+- **Database Queries**: Less than 100ms average
+- **Mobile App Load**: Less than 3 seconds
 
-### Authentication
-- JWT tokens
-- MetaMask signatures
-- Multi-factor auth
+## 🔐 Security Architecture
+
+### Authentication & Authorization
+- JWT token-based authentication
+- Role-based access control (Admin, Farmer, Consumer)
+- Session management with Redis
+- API rate limiting and protection
 
 ### Data Security
-- Encryption at rest
-- HTTPS everywhere
-- IAM policies
+- HTTPS encryption for all communications
+- Data encryption at rest
+- Input validation and sanitization
+- SQL injection prevention
 
-### Access Control
-- Role-based access
-- Smart contract permissions
-- API rate limiting
+### QR Code Security
+- Unique, non-guessable QR codes
+- Tamper-proof code generation
+- Expiration dates for codes
+- Verification against database
 
-## 📈 Khả năng mở rộng
+## 📈 Scalability Features
 
 ### Horizontal Scaling
-- Load balancing
-- Database replication
-- Cache distribution
+- Load balancing across multiple API instances
+- Database read replicas
+- Redis cluster for caching
+- CDN for static file delivery
 
 ### Vertical Scaling
-- Instance upgrades
-- Storage optimization
-- Performance tuning
+- Database performance optimization
+- API response caching
+- Image compression and optimization
+- Mobile app performance tuning
 
 ## 🔄 Backup & Recovery
 
-### Data Backup
-- RDS automated backups
-- S3 versioning
-- Blockchain immutability
+### Data Backup Strategy
+- Automated database backups
+- File storage versioning
+- Configuration backup
+- Disaster recovery procedures
 
-### Disaster Recovery
-- Multi-region deployment
-- Failover procedures
-- Data restoration plan
+### System Monitoring
+- Real-time performance monitoring
+- Error tracking and alerting
+- User activity analytics
+- System health checks
 
-## 📝 Documentation
+## 📱 Mobile App Architecture
 
-### Technical Docs
-- API documentation
-- Smart contract specs
-- Database schema
+### React Native Components
+- **Navigation**: React Navigation for app flow
+- **State Management**: Redux/Context API
+- **Camera Integration**: Expo Camera for QR scanning
+- **Storage**: AsyncStorage for offline data
+- **Networking**: Axios for API communication
 
-### User Guides
-- Student manual
-- Teacher guide
-- Admin documentation
+### Key Features
+- **Offline Mode**: Work without internet connection
+- **Photo Capture**: High-quality product images
+- **GPS Tracking**: Accurate farm location
+- **QR Generation**: Create codes for products
+- **Push Notifications**: Real-time updates
+
+## 🌐 Web Dashboard Architecture
+
+### React.js Components
+- **Material-UI**: Professional UI components
+- **Charts**: Recharts for data visualization
+- **Tables**: Data grid for user management
+- **Forms**: Validation and submission
+- **Routing**: React Router for navigation
+
+### Admin Features
+- **User Management**: Farmer and consumer accounts
+- **Content Moderation**: Review and approve content
+- **Analytics Dashboard**: Performance metrics
+- **System Settings**: Platform configuration
+- **Support Tools**: Customer service interface
+
+## 📊 Database Schema Overview
+
+### Core Tables
+- **Users**: Farmer, consumer, and admin accounts
+- **Batches**: Product batch information
+- **QR Codes**: Generated QR code data
+- **Reviews**: Consumer ratings and feedback
+- **Categories**: Product type classification
+- **Files**: Image and document storage
+
+### Relationships
+- Users can create multiple batches
+- Each batch has one QR code
+- Batches can have multiple reviews
+- Categories organize product types
+- Files are linked to batches and users
+
+## 🚀 Deployment Architecture
+
+### Production Environment
+- **Backend**: Node.js on Docker containers
+- **Database**: Managed MySQL/PostgreSQL service
+- **Cache**: Redis cluster for high availability
+- **Storage**: AWS S3 for file storage
+- **CDN**: CloudFront for global delivery
+
+### Development Environment
+- **Local Development**: Docker Compose setup
+- **Testing**: Automated CI/CD pipeline
+- **Staging**: Production-like environment
+- **Monitoring**: Application performance monitoring
+
+## 📞 Contact Information
+
+| Role | Name | Email |
+|------|------|-------|
+| Leader | **Nguyen Quoc Long** | [quoclongdng@gmail.com](mailto:quoclongdng@gmail.com) |
+| Developer | **Le Thanh Truong** | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
+| Developer | **Vo Van Viet** | [vietvo371@gmail.com](mailto:vietvo371@gmail.com) |
 
 ## 📝 License
-Dự án được phân phối dưới giấy phép [MIT License](/LICENSE)
 
-## 🪜 Hệ thống
-Thiết kế theo kiến trúc như hình vẽ bên dưới:
+This project is distributed under the [MIT License](/LICENSE)
+
+## 🏗️ System Architecture
+
+The system is designed according to the architecture shown in the diagram below:
 ![Architecture Diagram](../static/img/Architecture.jpg)
 
-## 👥 Đối tượng người dùng
+## 👥 Target Users
 
-| 👩‍🏫 Giảng viên | 🎓 Sinh viên | 💼 Nhà trường | 🏢 Nhà tuyển dụng |
-|----------------|-------------|-------------------|-------------------|
-| Phát hành và xác minh chứng chỉ | Lưu trữ & chia sẻ hồ sơ bất biến | Đảm bảo chất lượng học thuật | Xác thực & đánh giá ứng viên |
+| 👨‍🌾 Farmers | 🛒 Consumers | 👨‍💼 Administrators | 🏢 Cooperatives |
+|-------------|-------------|-------------------|-----------------|
+| Create and manage product batches | Scan QR codes for product info | Manage platform and users | Coordinate multiple farmers |
 
-## 💡 Tính năng chính
+## 💡 Core Features
 
-### 🎓 Quản lý văn bằng
-- Phát hành chứng chỉ NFT
-- Xác minh tức thì
-- Lưu trữ phi tập trung
+### 🌾 Product Traceability
+- QR code generation and scanning
+- Product batch management
+- Farm location tracking
+- Harvest date recording
 
-### 👥 Tuyển dụng
-- Hồ sơ ứng viên blockchain
-- Xác thực tự động
-- Kết nối doanh nghiệp-trường
+### 📱 Mobile-First Design
+- Cross-platform mobile app
+- Offline capability
+- Camera integration
+- GPS location services
 
-### 🤝 Liên kết trường
-- Chia sẻ dữ liệu học thuật
-- Chuyển tiếp tín chỉ
-- Xác thực liên trường
+### 👥 User Management
+- Multi-role user system
+- Secure authentication
+- Profile management
+- Activity tracking
 
-## 📞 Liên hệ
+### 📊 Analytics & Reporting
+- Performance metrics
+- User behavior analysis
+- Market trend insights
+- Export capabilities
 
-| Role      | Name                    | Email                                                                 |
-| --------- | ----------------------- | --------------------------------------------------------------------- |
-| Leader    | **Nguyễn Quốc Long**     | [quoclongdng@gmail.com](mailto:quoclongdng@gmail.com)                 |
-| Developer | **Lê Thanh Trường**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
-| Developer | **Võ Văn Việt**          | [vietvo371@gmail.com](mailto:vietvo371@gmail.com)                     |
-| Developer | **Nguyễn Văn Nhân**      | [vannhan130504@gmail.com](mailto:vannhan130504@gmail.com)             |
-| Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
+---
 
-*"Được phát triển với ❤️ bởi Nhóm DTU-DZ"*
+*"Built with ❤️ by the AgriTrace Team"*

@@ -1,145 +1,210 @@
-# Hướng dẫn cài đặt EduBridgeTrace
+# AgriTrace Installation Guide
 
-## ⚙️ Yêu cầu hệ thống
+## ⚙️ System Requirements
 
 | Software     | Minimum Version       |
 | ------------ | --------------------- |
-| **Laravel**   | 12x                  |
-| **Node.js**  | >=6.0.0              |
-| **Npm**      | 10.9.2               |
-| **MetaMask** | 11.x (Chrome/Firefox)|
-| **Axios**    | 1.8.2                |
-| **Vite**     | 6.2.4                |
+| **Node.js**  | >=18.0.0              |
+| **Yarn**     | >=1.22.0              |
+| **React Native** | 0.72.0              |
+| **Expo CLI** | >=6.0.0               |
+| **MySQL**    | 8.0                   |
+| **PostgreSQL** | 14.0                 |
+| **Redis**    | 6.0                   |
 
 ## 🏗️ System Architecture
 
 | Layer | Main Technologies | Role | Highlights |
 |-------|-------------------|------|-----------|
-| **Frontend** | Vue 3, Bootstrap 5 | SPA interface for 4 user types | Fast response, multi-device |
-| **Web3 Gateway** | `web3.js` / `ethers.js` + MetaMask | Sign & send transactions, read blockchain | Familiar UX, private key security |
-| **Cache** | AWS ElastiCache (Redis) | Key-value store, pub/sub | Speeds up queries, session storage |
-| **Backend (Containers)** |Laravel | API REST/GraphQL, nghiệp vụ, queue workers | Apache / Nginx |
-| **Database** | AWS RDS (MySQL 8) | Relational data (users, courses, recruitment) | Automated backup, Multi-AZ |
-| **Object Storage** | AWS S3 | Static frontend files, CVs, media | IAM security, versioning |
-| **Smart Contracts** | Solidity + OpenZeppelin | NFT-degree, utility token | Deployed on Ethereum & Testnet |
-| **Distributed Storage** | IPFS + Pinata | Store degree metadata, large files | Immutable hash, free CDN gateway |
-| **Long-term Storage** | Filecoin | Storage deal for "hot" data | Durability commitment, low cost |
+| **Mobile App** | React Native, Expo | Cross-platform mobile app for farmers | Offline support, camera integration |
+| **Web Dashboard** | React.js, TypeScript | Admin dashboard and web interface | Responsive design, real-time updates |
+| **Backend API** | Node.js, Express.js | RESTful API, authentication, business logic | JWT authentication, rate limiting |
+| **Database** | MySQL/PostgreSQL | Relational data storage | ACID compliance, indexing |
+| **Cache** | Redis | Session storage, caching | Fast response times |
+| **QR Code System** | qrcode.js, camera API | QR generation and scanning | Native camera integration |
+| **File Storage** | AWS S3 / Local | Photo and file storage | Scalable storage solution |
+| **Deployment** | Docker, PM2 | Containerization and process management | Easy scaling and deployment |
 
-## 🚀 Cài đặt
+## 🚀 Installation
 
-### 🌐 Production
+### 🌐 Production Deployment
 
 ```bash
 # 1. Clone source code
-git clone git@gitlab.com:ThanhTruong2311/blockchain_dtudz.git
-cd blockchain_dtudz
+git clone https://github.com/vietvo371/AgriTrace.git
+cd AgriTrace
 
-# 2. Create config file
+# 2. Backend Setup
+cd backend
 cp .env.example .env
-# ✏️ Fill in Database, RPC endpoints, Pinata API key
+# ✏️ Fill in Database, Redis, JWT secret
 
-# 3. Build & Deploy
-./scripts/deploy-ecs.sh
+# 3. Database Setup
+mysql -u root -p
+CREATE DATABASE agritrace;
+CREATE USER 'agritrace_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON agritrace.* TO 'agritrace_user'@'localhost';
+FLUSH PRIVILEGES;
+
+# 4. Install Dependencies
+yarn install
+
+# 5. Run Migrations
+yarn migrate
+
+# 6. Seed Database
+yarn seed
+
+# 7. Start Production Server
+yarn start:prod
 ```
 
 ### 💻 Local Development
 
+#### Backend Setup
 ```bash
-# Backend Setup
-composer i 
-npm i
-php artisan migrate
-php artisan db:seed
-npm run watch
-php artisan serve
+# 1. Install dependencies
+yarn install
+
+# 2. Setup environment
+cp .env.example .env
+# Edit .env with your local settings
+
+# 3. Database setup
+yarn db:migrate
+yarn db:seed
+
+# 4. Start development server
+yarn dev
 ```
 
-## 👥 Tài khoản Demo
+#### Mobile App Setup
+```bash
+# 1. Install Expo CLI
+npm install -g @expo/cli
+
+# 2. Navigate to mobile app
+cd mobile
+
+# 3. Install dependencies
+yarn install
+
+# 4. Start Expo development server
+yarn start
+# or
+expo start
+```
+
+#### Web Dashboard Setup
+```bash
+# 1. Navigate to web dashboard
+cd web
+
+# 2. Install dependencies
+yarn install
+
+# 3. Start development server
+yarn start
+```
+
+## 👥 Demo Accounts
 
 ### ADMIN
-- Email: admin@gmail.com
-- Password: 123456
+- Email: admin@agritrace.vn
+- Password: admin123
 
-### STUDENT
-
-**Account 1**
-- Email: anh.nm220001@dtu.edu.vn
-- Password: 123456
-
-**Account 2**
-- Email: binh.tv220002@sis.hust.edu.vn
-- Password: 123456
-
-### SCHOOL
+### FARMER
 
 **Account 1**
-- Email: admin@dtu.edu.vn
-- Password: 123456
+- Email: farmer1@agritrace.vn
+- Password: farmer123
 
 **Account 2**
-- Email: admin@uet.vnu.edu.vn
-- Password: 123456
+- Email: farmer2@agritrace.vn
+- Password: farmer123
 
-### LECTURER
+### CONSUMER
+- No account needed - QR scanning works without login
 
-**Account 1**
-- Email: nguyenquoclong@dtu.edu.vn
-- Password: 123456
+## 🔍 Installation Verification
 
-**Account 2**
-- Email: lehoangnam@hust.edu.vn
-- Password: 123456
+### 1. Backend API
+- Health check: http://localhost:3001/api/health
+- API docs: http://localhost:3001/api/docs
+- Test endpoints with Postman
 
-### BUSINESS
+### 2. Mobile App
+- Install Expo Go on your phone
+- Scan QR code from `expo start`
+- Test login and batch creation
 
-**Account 1**
-- Email: hr@fpt.com.vn
-- Password: 123456
+### 3. Web Dashboard
+- Access: http://localhost:3000
+- Test admin functions
+- Verify user management
 
-**Account 2**
-- Email: tuyen.dung@viettel.com.vn
-- Password: 123456
-
-## 🔍 Kiểm tra cài đặt
-
-### 1. Frontend
-- Truy cập: https://vietchain.dzfullstack.edu.vn
-- Kiểm tra kết nối MetaMask
-- Test đăng nhập/đăng ký
-
-### 2. Backend
-- Health check: https://api.vietchain.dzfullstack.edu.vn/health
-- Swagger docs: https://api.vietchain.dzfullstack.edu.vn/api-docs
-- Test API endpoints
-
-### 3. Database
-- Kiểm tra migrations
+### 4. Database
+- Check migrations: `yarn db:migrate:status`
 - Verify seeded data
 - Test connections
 
-## 🐛 Xử lý lỗi thường gặp
+## 🐛 Troubleshooting Common Issues
 
-### Laravel Issues
-- Composer dependencies
-- Migration errors
-- Permission issues
+### Node.js Issues
+```bash
+# Node version conflicts
+nvm use 18
+# or
+nvm install 18
 
-### Frontend Issues
-- Node version conflicts
-- Build errors
-- MetaMask connection
+# Yarn issues
+yarn cache clean
+yarn install --force
+```
+
+### React Native Issues
+```bash
+# Metro bundler issues
+npx react-native start --reset-cache
+
+# Expo issues
+expo doctor
+expo install --fix
+
+# iOS simulator issues
+npx react-native run-ios --simulator="iPhone 14"
+```
 
 ### Database Issues
-- Connection strings
-- Migration failures
-- Seeding errors
+```bash
+# Connection issues
+mysql -u root -p -e "SHOW DATABASES;"
 
-## 🤝 Đóng góp
+# Migration issues
+yarn db:migrate:rollback
+yarn db:migrate
+
+# Seeding issues
+yarn db:seed --force
+```
+
+### QR Code Issues
+```bash
+# Camera permissions
+# iOS: Add NSCameraUsageDescription to Info.plist
+# Android: Add camera permission to AndroidManifest.xml
+
+# QR generation issues
+yarn add qrcode
+yarn add react-native-qrcode-svg
+```
+
+## 🤝 Contributing
 
 ```bash
 # 1. Fork the repository and clone to local
-git clone git@gitlab.com:ThanhTruong2311/blockchain_dtudz.git
-cd blockchain_dtudz
+git clone https://github.com/vietvo371/AgriTrace.git
+cd AgriTrace
 
 # 2. Create a new branch for the feature
 git checkout -b feat/my-awesome-feature
@@ -150,7 +215,7 @@ git commit -m "feat: add new awesome feature"
 
 # 4. Push and create a Pull Request
 git push origin feat/my-awesome-feature
-# 🔀 Create a Pull Request on GitLab
+# 🔀 Create a Pull Request on GitHub
 ```
 
 ### 📋 Contribution Guidelines
@@ -158,34 +223,102 @@ git push origin feat/my-awesome-feature
 - ✅ Write tests for new code
 - ✅ Ensure code passes all CI/CD checks
 - ✅ Update documentation if needed
+- ✅ Test on both iOS and Android for mobile changes
 
-## 📞 Liên hệ
+## 📱 Mobile App Development
+
+### React Native Setup
+```bash
+# Install React Native CLI
+npm install -g react-native-cli
+
+# Create new project
+npx react-native init AgriTraceMobile
+
+# Install essential dependencies
+yarn add @react-navigation/native
+yarn add @react-navigation/stack
+yarn add @react-navigation/bottom-tabs
+yarn add react-native-camera
+yarn add react-native-qrcode-scanner
+yarn add @react-native-async-storage/async-storage
+yarn add axios
+yarn add react-native-vector-icons
+```
+
+### Expo Setup
+```bash
+# Install Expo CLI
+npm install -g @expo/cli
+
+# Create new Expo project
+npx create-expo-app AgriTraceMobile
+
+# Install Expo dependencies
+npx expo install expo-camera
+npx expo install expo-barcode-scanner
+npx expo install expo-file-system
+npx expo install expo-image-picker
+npx expo install expo-location
+```
+
+### Key Mobile Features
+- **Camera Integration**: QR code scanning
+- **Offline Support**: Local data storage
+- **GPS Location**: Field location tracking
+- **Photo Capture**: Product image upload
+- **Push Notifications**: Real-time updates
+
+## 🌐 Web Dashboard Development
+
+### React.js Setup
+```bash
+# Create React app
+npx create-react-app agritrace-web --template typescript
+
+# Install dependencies
+yarn add @mui/material @emotion/react @emotion/styled
+yarn add @mui/icons-material
+yarn add react-router-dom
+yarn add axios
+yarn add recharts
+yarn add @mui/x-data-grid
+```
+
+### Key Web Features
+- **Admin Dashboard**: User management
+- **Analytics**: Sales and performance metrics
+- **QR Code Management**: Batch tracking
+- **User Management**: Farmer and admin accounts
+- **Reports**: Export data and analytics
+
+## 📞 Contact
 
 ### Team Members
 | Role      | Name                    | Email                                                                 |
 | --------- | ----------------------- | --------------------------------------------------------------------- |
-| Leader    | **Nguyễn Quốc Long**     | [quoclongdng@gmail.com](mailto:quoclongdng@gmail.com)                 |
-| Developer | **Lê Thanh Trường**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
-| Developer | **Võ Văn Việt**          | [vietvo371@gmail.com](mailto:vietvo371@gmail.com)                     |
-| Developer | **Nguyễn Văn Nhân**      | [vannhan130504@gmail.com](mailto:vannhan130504@gmail.com)             |
-| Developer | **Nguyễn Ngọc Duy Thái** | [kkdn011@gmail.com](mailto:kkdn011@gmail.com)                         |
+| Leader    | **Nguyen Quoc Long**     | [quoclongdng@gmail.com](mailto:quoclongdng@gmail.com)                 |
+| Developer | **Le Thanh Truong**      | [thanhtruong23111999@gmail.com](mailto:thanhtruong23111999@gmail.com) |
+| Developer | **Vo Van Viet**          | [vietvo371@gmail.com](mailto:vietvo371@gmail.com)                     |
 
 ### Support
-- Email: nguyenquoclongdng@gmail.com
-- Hotline: 0905523543
-- Live chat: https://vietchain.dzfullstack.edu.vn
+- Email: support@agritrace.vn
+- Hotline: +84 123 456 789
+- Documentation: https://agritrace.vn/docs
 
-## 📚 Tài liệu tham khảo
+## 📚 References
 
-- [Laravel Documentation](https://laravel.com/docs)
-- [Vue.js Documentation](https://vuejs.org/)
-- [MetaMask Documentation](https://docs.metamask.io/)
-- [IPFS Documentation](https://docs.ipfs.tech/)
-- [Polygon Documentation](https://polygon.technology/)
-- [OpenZeppelin Documentation](https://docs.openzeppelin.com/)
+- [React Native Documentation](https://reactnative.dev/)
+- [Expo Documentation](https://docs.expo.dev/)
+- [Node.js Documentation](https://nodejs.org/docs/)
+- [Express.js Documentation](https://expressjs.com/)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [Redis Documentation](https://redis.io/documentation)
+- [QR Code Generation](https://github.com/soldair/node-qrcode)
+- [React Navigation](https://reactnavigation.org/)
 
 ## 📝 License
 
 Released under the MIT License – see LICENSE file for details.
 
-© 2025 EduBridgeTrace – Build trust, unlock opportunity.
+© 2024 AgriTrace – Empowering Vietnamese farmers with digital traceability.
